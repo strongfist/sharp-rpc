@@ -36,7 +36,7 @@ public class Core {
     static {
         var rpcConfigFilename = System.getenv("SHARP_CONFIG");
         if (StringUtils.isEmpty(rpcConfigFilename))
-            throw new RPCException(" env DB_CONFIG_LOCATION must not empty! ");
+            throw new RPCException(" env SHARP_CONFIG must not empty! ");
 
         if (rpcConfigFilename.split(",").length > 1) {
             initForMultipleFIle(rpcConfigFilename);
