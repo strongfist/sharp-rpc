@@ -9,11 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
 
-<!--    <jvm.options>-Duser.language=en</jvm.options>-->
+    <!--    <jvm.options>-Duser.language=en</jvm.options>-->
 
     <properties>
         <!-- default bytecode version for src/main -->
-        <main.java.version>1.8</main.java.version>
+        <main.java.version>17</main.java.version>
         <main.signature.artifact>java18</main.signature.artifact>
         <feign.groupId>io.github.openfeign</feign.groupId>
         <feign.version>12.2-SNAPSHOT</feign.version>
@@ -62,291 +62,20 @@
     <url>https://github.com/openfeign/feign</url>
     <inceptionYear>2012</inceptionYear>
 
-    <organization>
-        <name>OpenFeign</name>
-        <url>https://github.com/openfeign</url>
-    </organization>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <scm>
-        <url>https://github.com/openfeign/feign</url>
-        <connection>scm:git:git@github.com:OpenFeign/feign.git</connection>
-        <developerConnection>scm:git:git@github.com:OpenFeign/feign.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>adriancole</id>
-            <name>Adrian Cole</name>
-            <email>acole@pivotal.io</email>
-        </developer>
-        <developer>
-            <id>spencergibb</id>
-            <name>Spencer Gibb</name>
-            <email>spencer@gibb.us</email>
-        </developer>
-        <developer>
-            <id>velo</id>
-            <name>Marvin Herman Froeder</name>
-            <email>velo br at gmail dot com</email>
-            <url>about.me/velo</url>
-        </developer>
-        <developer>
-            <id>kdavisk6</id>
-            <name>Kevin Davis</name>
-            <email>kdavisk6@gmail.com</email>
-        </developer>
-    </developers>
-
-    <distributionManagement>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/openfeign/feign/issues</url>
-    </issueManagement>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-core</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-core</artifactId>
-                <version>${feign.version}</version>
-                <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-gson</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-httpclient</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-hystrix</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jackson-jaxb</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jackson</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jaxb</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jaxrs</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jaxrs</artifactId>
-                <version>${feign.version}</version>
-                <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-jaxrs2</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-mock</artifactId>
-                <version>${feign.version}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-okhttp</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-ribbon</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-sax</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-slf4j</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-kotlin</artifactId>
-                <version>${feign.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${feign.groupId}</groupId>
-                <artifactId>feign-micrometer</artifactId>
-                <version>${feign.version}</version>
-                <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-params</artifactId>
-                <version>${junit5.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.hamcrest</groupId>
-                <artifactId>hamcrest</artifactId>
-                <version>${hamcrest.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jvnet</groupId>
-                <artifactId>animal-sniffer-annotation</artifactId>
-                <version>1.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>${gson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp-bom</artifactId>
-                <version>${okhttp3.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.http-client</groupId>
-                <artifactId>google-http-client</artifactId>
-                <version>${googlehttpclient.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${bouncy.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${json.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.jr</groupId>
-                <artifactId>jackson-jr-objects</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.jr</groupId>
-                <artifactId>jackson-jr-annotation-support</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-simple</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-nop</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -360,9 +89,114 @@
         </dependency>
 
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit5.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <scope>test</scope>
+            <version>${assertj.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp-bom</artifactId>
+            <version>${okhttp3.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+            <version>${googlehttpclient.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jr</groupId>
+            <artifactId>jackson-jr-objects</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.jr</groupId>
+            <artifactId>jackson-jr-annotation-support</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.12</version>
         </dependency>
     </dependencies>
 

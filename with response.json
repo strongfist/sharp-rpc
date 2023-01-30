@@ -1,0 +1,832 @@
+{
+	"info": {
+		"_postman_id": "c7fcda31-6a36-441c-abdd-595de600e081",
+		"name": "postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "access token",
+			"item": [
+				{
+					"name": "aknas",
+					"item": [
+						{
+							"name": "folder-inside",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientId",
+											"value": "spring-boot",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "almas-admin",
+											"type": "string"
+										},
+										{
+											"key": "accessTokenUrl",
+											"value": "http://localhost:8080/realms/demo1/protocol/openid-connect/token",
+											"type": "string"
+										},
+										{
+											"key": "clientSecret",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "almas-token-name",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "string"
+										},
+										{
+											"key": "grant_type",
+											"value": "password_credentials",
+											"type": "string"
+										},
+										{
+											"key": "client_authentication",
+											"value": "body",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"clientName\":\"almas\",\"clientEmail\":\"1234567@163.com\"}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{simple-api}}/api-clients/",
+									"host": [
+										"{{simple-api}}"
+									],
+									"path": [
+										"api-clients",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get access token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientId",
+									"value": "spring-boot",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "almas-admin",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8080/realms/demo1/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "almas-token-name",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								},
+								{
+									"key": "client_authentication",
+									"value": "body",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"clientName\":\"almas\",\"clientEmail\":\"1234567@163.com\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{simple-api}}/api-clients/",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"api-clients",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "some api",
+			"item": [
+				{
+					"name": "simle APi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}",
+							"host": [
+								"{{simple-api}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/status",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resp =pm.response.json()",
+									"",
+									"const nonFiction=resp.filter((book)=> book.available===true)",
+									"console.log(\"availabe\", nonFiction)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/books?type=fiction&limit=20",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "fiction"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "path valiable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/books/:bookId",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"books",
+								":bookId"
+							],
+							"variable": [
+								{
+									"key": "bookId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"const resp=pm.response.json()",
+									"console.log(resp)",
+									"const  status=pm.response['status']",
+									"pm.test(\"status should be OK!\",()=>{",
+									"pm.response.to.have.status(201)",
+									"})",
+									"const orderId= pm.response.json().orderId",
+									"pm.collectionVariables.set(\"orderId\", orderId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": 1,\n    \"customerName\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{simple-api}}/orders",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "orders post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1,\n    \"customerName\": \"{{$randomFullName}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{simple-api}}/orders",
+									"host": [
+										"{{simple-api}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 30 Jan 2023 13:50:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"32-XCOd7nZLjimiubnQALXSNuYHvEc\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"created\": true,\n    \"orderId\": \"yld_HwNtrCkZ0KIK9ZKLI\"\n}"
+						},
+						{
+							"name": "orders post",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1,\n    \"customerName\": \"{{$randomFullName}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{simple-api}}/orders",
+									"host": [
+										"{{simple-api}}"
+									],
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 30 Jan 2023 13:50:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-powered-by",
+									"value": "Express"
+								},
+								{
+									"key": "etag",
+									"value": "W/\"32-XCOd7nZLjimiubnQALXSNuYHvEc\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"created\": true,\n    \"orderId\": \"yld_HwNtrCkZ0KIK9ZKLI\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get all orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resp =pm.response.json()",
+									"",
+									"const nonFiction=resp.filter((book)=> book.available===true)",
+									"console.log(\"availabe\", nonFiction)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": 1,\n    \"customerName\": \"{{$randomFullName}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{simple-api}}/orders",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"order not found\",()=>{",
+									"    pm.response.to.have.status(404)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/orders/:orderId",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/orders/:orderid",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders",
+								":orderid"
+							],
+							"variable": [
+								{
+									"key": "orderid",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{simple-api}}/orders/:orderid",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders",
+								":orderid"
+							],
+							"variable": [
+								{
+									"key": "orderid",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "withFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{acces-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "form-data",
+									"type": "file",
+									"src": "/Users/almasrixat/Desktop/almas.5544.png"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{simple-api}}/orders/:orderid?file",
+							"host": [
+								"{{simple-api}}"
+							],
+							"path": [
+								"orders",
+								":orderid"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "orderid",
+									"value": "{{orderId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "directRequest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acces-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "form-data",
+							"type": "file",
+							"src": "/Users/almasrixat/Desktop/almas.5544.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{simple-api}}/orders/:orderid?file",
+					"host": [
+						"{{simple-api}}"
+					],
+					"path": [
+						"orders",
+						":orderid"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": null
+						}
+					],
+					"variable": [
+						{
+							"key": "orderid",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "directRequest Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{acces-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "form-data",
+							"type": "file",
+							"src": "/Users/almasrixat/Desktop/almas.5544.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{simple-api}}/orders/:orderid?file",
+					"host": [
+						"{{simple-api}}"
+					],
+					"path": [
+						"orders",
+						":orderid"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": null
+						}
+					],
+					"variable": [
+						{
+							"key": "orderid",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "simple-api",
+			"value": "http://simple-books-api.glitch.me"
+		},
+		{
+			"key": "acces-token",
+			"value": "4b82aafd539d475ab942ebaf04e21ff24fb7c3a4016f5a7d6a2e14bd5df439e8",
+			"type": "default"
+		},
+		{
+			"key": "orderId",
+			"value": ""
+		}
+	]
+}
